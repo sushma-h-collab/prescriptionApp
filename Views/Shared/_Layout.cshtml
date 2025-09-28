@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Prescription</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" /> <!-- Your custom CSS -->
+</head>
+
+<body>
+    <div class="container">
+        <header class="home-hero p-4 mb-3 border rounded-3">
+            <div class="header-content text-center">
+                <img src="~/images/walgreens.png" asp-append-version="true" alt="Walgreens"class="brand-image" />
+                <h1 class="brand-title">Walgreens Prescription App</h1>
+            </div>
+        </header>
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

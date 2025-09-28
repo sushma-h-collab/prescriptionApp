@@ -1,0 +1,43 @@
+﻿@model List<Prescription>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="mb-3">
+    <a asp-controller="Prescription" asp-action="Add" class="btn btn-primary">
+        Add New Prescription
+    </a>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Medication Name</th>
+            <th>Fill Status</th>
+            <th>Cost</th>
+            <th>Request Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prescription in Model)
+        {
+            <tr>
+                <td>@prescription.MedicationName</td>
+                <td>@prescription.FillStatus</td>
+                <td>@prescription.Cost?.ToString("0.00")</td>
+                <td>@prescription.RequestTime?.ToString("MM/dd/yyyy HH:mm")</td>
+                <td>
+                    <a asp-controller="Prescription" asp-action="Edit" asp-route-id="@prescription.PrescriptionId">
+                        Edit
+                    </a>
+                    <span class="mx-1">|</span>
+                    <a asp-controller="Prescription" asp-action="Delete" asp-route-id="@prescription.PrescriptionId">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
